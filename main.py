@@ -27,11 +27,14 @@ def extract_hashtags(description):
 
 # Function to generate random hashtags from the title
 def generate_hashtags_from_title(title):
+    # Remove special characters and convert to lowercase
+    title = re.sub(r'[^\w\s]', '', title).lower()  # Remove special characters and convert to lowercase
     # Split the title into words and shuffle them
     words = title.split()
     random.shuffle(words)
     hashtags = ['#' + word for word in words[:3]]  # Use the first 3 words as hashtags
     return hashtags
+
 
 # Function to fetch videos from a playlist
 def get_playlist_videos(playlist_id):
